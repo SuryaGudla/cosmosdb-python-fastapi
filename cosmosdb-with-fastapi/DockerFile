@@ -1,0 +1,18 @@
+FROM python As base
+WORKDIR /app
+FROM base AS dependencies
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+#---copy application file from local to the image/build----
+FROM dependencies AS build
+WORKDIR /app
+ADD ./ .
+#FROM python AS release
+#WORKDIR /app
+#COPY --from=dependencies /app/requirements.txt ./
+#COPY --from=dependencies /root/.cache /root/.cache
+#RUN pip install -r requirements.txt
+#COPY --from=build /app/ ./
+#WORKDIR /app/cosmosdb-with-fastapi/
+#CMD ["uvicorn", "--config", "./cosmosdb-python-fastapi/cosmosdb-with-fastapi/main.py", "cosmosdb-python-fastapi:app"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
