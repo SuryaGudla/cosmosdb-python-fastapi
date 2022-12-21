@@ -6,36 +6,36 @@
     # The name of the Azure Container Registry that the runnable application image will be pushed to.
     acrName: acrtest18
     # 'The username used to authenticate push requests to the provided Azure Container Registry. If not provided, an
-access token will be generated via "az acr login" and provided to "docker login" to authenticate the requests.'
+#access token will be generated via "az acr login" and provided to "docker login" to authenticate the requests.'
 
     acrUsername: acrtest18
     # 'The password used to authenticate push requests to the provided Azure Container Registry. If not provided, an
-access token will be generated via "az acr login" and provided to "docker login" to authenticate the requests.'
+#access token will be generated via "az acr login" and provided to "docker login" to authenticate the requests.'
 
     acrPassword: SVl6COq+Z8KP/BU2RMEpf/xmcd96hBkWo2wLER+BNQ+ACRB+H1XQ
     # 'Azure credentials used by the `azure/login` action to authenticate Azure CLI requests if the user has not
-previously authenticated in the workflow calling this action.'
+#previously authenticated in the workflow calling this action.'
 
     azureCredentials: # optional
     # 'The custom name of the image that is to be built, pushed to ACR and deployed to the Container App by this action.
-Note: this image name should include the ACR server; e.g., <acr-name>.azurecr.io/<repo>:<tag>. If this argument is
-not provided, a default image name will be constructed in the form of
-<acr-name>.azurecr.io/github-action/container-app:<github-run-id>.<github-run-attempt>.'
+#Note: this image name should include the ACR server; e.g., <acr-name>.azurecr.io/<repo>:<tag>. If this argument is
+#not provided, a default image name will be constructed in the form of
+#<acr-name>.azurecr.io/github-action/container-app:<github-run-id>.<github-run-attempt>.'
 
     imageToBuild: # optional
     # 'The custom name of an image that has already been pushed to ACR and will be deployed to the Container App by this
-action. Note: this image name should include the ACR server; e.g., <acr-name>.azurecr.io/<repo>:<tag>. If this
-argument is not provided, the value provided (or determined) for the "imageToBuild" argument will be used.'
+#action. Note: this image name should include the ACR server; e.g., <acr-name>.azurecr.io/<repo>:<tag>. If this
+#argument is not provided, the value provided (or determined) for the "imageToBuild" argument will be used.'
 
     imageToDeploy: # optional
     # 'Relative path to the Dockerfile in the provided application source that should be used to build the image that is
-then pushed to ACR and deployed to the Container App. If not provided, this action will check if there is a file
-named "Dockerfile" in the provided application source and use that to build the image. Otherwise, the Oryx++
-Builder will be used to create the image.'
+#then pushed to ACR and deployed to the Container App. If not provided, this action will check if there is a file
+#named "Dockerfile" in the provided application source and use that to build the image. Otherwise, the Oryx++
+#Builder will be used to create the image.'
 
     dockerfilePath: # optional
     # 'The name of the Azure Container App that will be created or updated. If not provided, this value will be
-gh-action-app-<github-run-id>-<github-run-attempt>.'
+#gh-action-app-<github-run-id>-<github-run-attempt>.'
 
     containerAppName: # optional, default is gh-action-app-${{ github.run_id }}-${{ github.run_attempt }}
     # 'The resource group that the Azure Container App will be created in. If not provided, this value will be
