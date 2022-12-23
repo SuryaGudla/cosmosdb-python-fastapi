@@ -1,29 +1,27 @@
 trigger:
-        - Dev
+- Dev
 
 pool:
-          vmImage: ubuntu-latest
-          strategy:
-                    matrix:
-                                Python39:
-                                              python.version: '3.9'
-                                               
-                                              steps:
-                                                      - task: UsePythonVersion@0
-                                                          inputs:
-                                                                      versionSpec: '$(python.version)'
-                                                                        displayName: 'Use Python $(python.version)'
+  vmImage: ubuntu-latest
+strategy:
+  matrix:
+    Python39:
+      python.version: '3.9'
+ 
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(python.version)'
+  displayName: 'Use Python $(python.version)'
 
-                                                      - script: |
-                                                                  cd cosmosdb-with-fastapi
-                                                                      python -m pip install --upgrade pip
-                                                                          pip install -r requirements.txt
-                                                                            displayName: 'Install dependencies'
+- script: |
+    cd cosmosdb-with-fastapi
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+  displayName: 'Install dependencies'
 
-                                                      - task: UsePythonVersion@0
-                                                          displayName: 'Build and test '
-                                                            inputs:
-                                                                    - script: |
-                                                                                pip install pytest
-                                                                                    python -m pytest
-                                                                                        python -m build
+- task: UsePythonVersion@0
+  displayName: 'Build and test '
+- script: |
+    pip install pytest && pip install build
+    python -m build
