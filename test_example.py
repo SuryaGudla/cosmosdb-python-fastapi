@@ -1,2 +1,2 @@
-def_mock():
+def test_mock():
   assert True
