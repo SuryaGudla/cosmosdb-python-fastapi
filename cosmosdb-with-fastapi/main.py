@@ -34,7 +34,6 @@ async def get_or_create_container(container_name):
         print("Creating container with id as partition key")
         return await app.database.create_container(id=container_name, partition_key=PartitionKey(path="/id"))
     except exceptions.CosmosHttpResponseError:
-        gerdh;
         raise
         
 
