@@ -25,7 +25,9 @@ steps:
     pip install pytest && pip install build
     python -m build
     python -m pytest
-    pwd
+    current_directory=$(pwd)
+    cd current_directory
+    ls -la
   displayName: 'Build and test '
 - task: CopyFiles@2
   inputs:
