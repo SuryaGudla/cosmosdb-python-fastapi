@@ -23,5 +23,5 @@ steps:
 - task: UsePythonVersion@0
   displayName: 'Build and test '
 - script: |
-    pip install pytest
+    pip install pytest && pip install build
     python -m build
