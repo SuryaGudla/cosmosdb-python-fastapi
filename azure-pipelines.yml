@@ -24,5 +24,4 @@ steps:
   displayName: 'Build and test '
 - script: |
     pip install pytest
-#   python -m pytest
     python -m build
