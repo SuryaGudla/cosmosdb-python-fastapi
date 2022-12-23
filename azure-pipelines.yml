@@ -21,7 +21,8 @@ steps:
   displayName: 'Install dependencies'
 
 - task: UsePythonVersion@0
-  displayName: 'Build and test '
 - script: |
     pip install pytest && pip install build
     python -m build
+    python -m pytest
+  displayName: 'Build and test '
