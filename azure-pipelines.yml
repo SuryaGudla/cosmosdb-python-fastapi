@@ -34,4 +34,4 @@ steps:
   displayName: 'Publish artifact: my-package'
   inputs:
     artifactName: 'my-package'
-    pathToPublish: '/home/vsts/work/1/s/my-package-1.0.0.tar.gz'
+    pathToPublish: '/home/vsts/work/1/s/dist/my-package-1.0.0.tar.gz'
