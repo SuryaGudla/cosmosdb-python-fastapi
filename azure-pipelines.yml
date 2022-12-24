@@ -28,13 +28,8 @@ steps:
     pwd
     ls -la
   displayName: 'Build and test '
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(agent.builddirectory)'
-    Contents: '**\*.tar.gz'
-    TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
+  displayName: 'Publish artifact: my-package'
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    artifactName: 'my-package'
+    pathToPublish: 'dist/*'
