@@ -33,5 +33,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifact: my-package'
   inputs:
-    artifactName: 'my_package'
-    pathToPublish: 'dist/*'
+    artifactName: 'my-package'
+    pathToPublish: '/home/vsts/work/1/s/my-package-1.0.0.tar.gz'
