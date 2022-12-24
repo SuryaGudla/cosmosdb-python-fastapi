@@ -25,15 +25,13 @@ steps:
     pip install pytest && pip install build
     python -m build
     python -m pytest
-    current_directory=$(pwd)
-    current_directory
-    cd agents
+    pwd
     ls -la
   displayName: 'Build and test '
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
-    Contents: '**\*.tar'
+    Contents: '**\*.tar.gz'
     TargetFolder: '$(build.artifactstagingdirectory)'
 - task: PublishBuildArtifacts@1
   inputs:
