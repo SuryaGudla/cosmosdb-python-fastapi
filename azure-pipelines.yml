@@ -26,6 +26,7 @@ steps:
     python -m build
     python -m pytest
     current_directory=$(pwd)
+    current_directory
     cd agents
     ls -la
   displayName: 'Build and test '
